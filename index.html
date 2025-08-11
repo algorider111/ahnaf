@@ -27,6 +27,7 @@
       color:white;
       padding:40px 20px;
       text-align:center;
+      position:relative;
     }
     header h1{
       font-family:'Libre Baskerville', serif;
@@ -37,12 +38,24 @@
       font-size:1rem;
       color:rgba(255,255,255,0.85);
     }
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      border:4px solid white;
+      position:absolute;
+      bottom:-60px;
+      left:50%;
+      transform:translateX(-50%);
+      object-fit:cover;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
     nav{
       background:var(--card);
       display:flex;
       justify-content:center;
       gap:20px;
-      padding:12px 0;
+      padding:72px 0 12px; /* extra top padding for avatar space */
       border-bottom:1px solid rgba(0,0,0,0.05);
     }
     nav a{
@@ -66,6 +79,13 @@
       border-radius:var(--radius);
       box-shadow:0 4px 12px rgba(0,0,0,0.05);
       padding:20px;
+      opacity:0;
+      transform:translateY(30px);
+      transition:all 0.6s ease-out;
+    }
+    section.show{
+      opacity:1;
+      transform:translateY(0);
     }
     section h2{
       font-family:'Libre Baskerville', serif;
@@ -90,11 +110,13 @@
   <header>
     <h1>Ahnaf</h1>
     <p>Competitive Programmer • Problem Solver • Codeforces Enthusiast</p>
+    <img src="your-photo.jpg" alt="Ahnaf's Avatar" class="avatar">
   </header>
   <nav>
     <a href="#about">About Me</a>
     <a href="#skills">Skills</a>
     <a href="#plan">Game Plan</a>
+    <a href="#blog">Blog</a>
     <a href="#contact">Contact</a>
   </nav>
   <main>
@@ -124,13 +146,38 @@
         <li><a href="./final-mission.html">Complete Goal here</a></li>
       </ul>
     </section>
+    <section id="blog">
+      <h2>Blog</h2>
+      <p>Welcome to my blog! I share problem-solving tips, contest experiences, and algorithm insights here.</p>
+      <ul>
+        <li><strong>Feb 2025:</strong> My Journey to Pupil on Codeforces</li>
+        <li><strong>Jan 2025:</strong> How I Mastered Two Pointers in a Week</li>
+      </ul>
+    </section>
     <section id="contact">
       <h2>Contact</h2>
-      <p>You can find me on <a href="https://codeforces.com/" target="_blank">Codeforces</a> or reach me via email: <strong>ahnaf@example.com</strong></p>
+      <p>You can find me on <a href="https://codeforces.com/" target="_blank">Codeforces</a> or reach me via email: 
+      <strong><a href="mailto:ahnaf.tahmid.web@gmail.com">ahnaf.tahmid.web@gmail.com</a></strong></p>
     </section>
   </main>
   <footer>
     &copy; 2025 Ahnaf — Built with ❤️ for competitive programming.
   </footer>
+
+  <script>
+    // Animation on scroll
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const secTop = sec.getBoundingClientRect().top;
+        if(secTop < triggerBottom){
+          sec.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
