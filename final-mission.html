@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Competitive Programming — Game Plan</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f7f6;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --accent:#1b4f8b; /* classic deep blue */
+      --accent-2:#c49a6c; /* warm secondary */
+      --max-w:900px;
+      --radius:12px;
+      --page-padding:28px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#eef2f6 60%);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .paper{
+      width:100%;
+      max-width:var(--max-w);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(23,35,56,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+      padding:var(--page-padding);
+      border:1px solid rgba(27,79,139,0.06);
+    }
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .brand {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      font-family: 'Libre Baskerville', serif;
+      font-size:20px;
+      box-shadow:0 6px 18px rgba(27,79,139,0.12);
+    }
+    h1{font-family:'Libre Baskerville', serif; font-size:24px; margin:0; color:var(--accent)}
+    .meta{color:var(--muted); font-size:13px}
+
+    nav{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap}
+    nav a{font-size:13px;color:var(--accent); text-decoration:none; padding:6px 10px; border-radius:8px}
+    nav a:hover{background:rgba(27,79,139,0.06)}
+
+    main{margin-top:18px}
+    section{padding:16px 18px;border-radius:10px;background:linear-gradient(180deg, rgba(250,250,250,0.9), transparent); border:1px solid rgba(20,20,20,0.02); margin-bottom:14px}
+    section h2{margin:0 0 10px 0; font-size:18px; color:#0f2e4a}
+    section p{margin:0 0 8px 0; color:#222}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0; color:var(--muted)}
+
+    .pill{display:inline-block;padding:6px 10px;background:rgba(27,79,139,0.06);color:var(--accent);border-radius:999px;font-weight:600;font-size:13px}
+
+    footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(20,20,20,0.03);margin-top:12px}
+    .actions{display:flex;gap:10px}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(27,79,139,0.12); background:white;cursor:pointer;font-weight:600}
+    .btn.primary{background:var(--accent);color:white;border:none}
+
+    /* Print friendly */
+    @media print{
+      body{background:white;padding:0}
+      .paper{box-shadow:none;border:none;margin:0}
+      .logo{display:none}
+      nav, .actions{display:none}
+    }
+
+    /* Responsive */
+    @media (max-width:640px){
+      body{padding:18px}
+      .logo{width:52px;height:52px;font-size:18px}
+      h1{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <article class="paper" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo">CP</div>
+        <div>
+          <h1>Competitive Programming — Game Plan</h1>
+          <div class="meta">A clear, classic plan to level up your CF & competitive skills</div>
+        </div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div class="pill">Printable • Copy-friendly</div>
+      </div>
+    </header>
+
+    <nav aria-label="sections">
+      <a href="#solve">1. Solve Problems</a>
+      <a href="#skip">2. Skip Materials</a>
+      <a href="#dp">3. Master DP</a>
+      <a href="#topics">4. Focus Topics</a>
+      <a href="#think">5. Think</a>
+      <a href="#learn">6. Learn</a>
+      <a href="#contest">7. Never Miss a Contest</a>
+    </nav>
+
+    <main>
+      <section id="solve">
+        <h2>1. Solve Problems Around My Rating</h2>
+        <p>Only solve problems that are <strong>close to your current rating level</strong>. Avoid problems that are either too easy or far beyond your reach — both are inefficient.</p>
+        <ul>
+          <li>Target: <strong>10 problems every day</strong> to build consistency and confidence.</li>
+        </ul>
+      </section>
+
+      <section id="skip">
+        <h2>2. Skip Irrelevant Materials</h2>
+        <p>Stay laser-focused on the fundamentals. Don’t waste time on advanced structures that aren’t yet useful.</p>
+        <ul>
+          <li>Example: skip persistent segment trees for now; return to them later when needed.</li>
+          <li>Keep practice practical — prefer problems that teach transferable techniques.</li>
+        </ul>
+      </section>
+
+      <section id="dp">
+        <h2>3. Master Dynamic Programming (DP)</h2>
+        <p>DP is one of the most important skills. Train both recognition and technique.</p>
+        <ul>
+          <li>Solve <strong>tag-free</strong> DP problems to learn recognition.</li>
+          <li>Solve <strong>tagged</strong> DP problems to practice specific techniques.</li>
+          <li>Target: <strong>10 DP problems per day</strong> when focusing on this topic.</li>
+        </ul>
+      </section>
+
+      <section id="topics">
+        <h2>4. Focus Topics</h2>
+        <p>Build strength in the core areas:</p>
+        <ul>
+          <li>Number Theory</li>
+          <li>Greedy Algorithms</li>
+          <li>Mathematics</li>
+          <li>Implementation</li>
+          <li>Brute Force</li>
+          <li>Bitmasking</li>
+          <li>Graph Algorithms</li>
+          <li>Two Pointers</li>
+          <li>Binary Search</li>
+        </ul>
+      </section>
+
+      <section id="think">
+        <h2>5. Think As Much As Needed</h2>
+        <p>Spend real time reasoning before reading solutions — this is where growth happens.</p>
+        <ul>
+          <li>Spend <strong>30–40 minutes</strong> thinking about a problem before looking at solutions.</li>
+          <li>If you might solve it, read only the first line of the editorial for a hint and continue trying.</li>
+          <li>If completely stuck, read the full editorial and study others’ solutions closely.</li>
+        </ul>
+      </section>
+
+      <section id="learn">
+        <h2>6. Learn As You Solve</h2>
+        <p>Don’t memorize ahead of time. Learn concepts on-demand while solving problems and immediately apply them.</p>
+        <ul>
+          <li>Solve by tags; when a new technique appears, study it and reapply to the problem.</li>
+        </ul>
+      </section>
+
+      <section id="contest">
+        <h2>7. Never Miss a Contest</h2>
+        <p>Contests are the fastest way to improve. Be consistent and analyze afterwards.</p>
+        <ul>
+          <li>Participate in every Codeforces contest. If you can’t solve during the contest, upsolve immediately after.</li>
+          <li>Do <strong>2 virtual contests per week</strong> for extra practice.</li>
+          <li>After each contest: solve missed problems and read others’ implementations for new tricks.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="meta">Last updated: Aug 11, 2025</div>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+        <button class="btn primary" id="downloadBtn">Download HTML</button>
+      </div>
+    </footer>
+  </article>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', function(){
+      const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'competitive-programming-game-plan.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
